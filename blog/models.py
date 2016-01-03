@@ -6,4 +6,11 @@ class BlogPost(models.Model):
     body=models.TextField()
     time=models.DateTimeField()
 
-admin.site.register(BlogPost)
+
+class BlogPostAdmin(admin.ModelAdmin):
+
+    list_display=('title',
+                  'body',
+                  'time')
+
+admin.site.register(BlogPost, BlogPostAdmin)
